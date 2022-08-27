@@ -1,0 +1,11 @@
+.technologies {
+  margin: 12px 0;
+  margin-bottom: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  align-items: center;
+}
