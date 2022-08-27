@@ -1,16 +1,18 @@
   <div>
     <section class="technologies">
       <h2>Select technologies:</h2>
-      <p><mat-checkbox formControlName="technology" color="primary">Java</mat-checkbox></p>
-      <p><mat-checkbox formControlName="technology" color="primary">JS</mat-checkbox></p>
-      <p><mat-checkbox formControlName="technology" color="primary">Spring</mat-checkbox></p>
-      <p><mat-checkbox formControlName="technology" color="primary">SQL</mat-checkbox></p>
+
+      <p *ngFor="let technology of technologies">
+      	<mat-checkbox formControlName="technology" color="primary"
+      	[checked]="technology.checked">{{technology.name}}</mat-checkbox>
+      </p>
     </section>
     <section class="technologies">
       <h2>Select level:</h2>
-      <p><mat-checkbox formControlName="complexity" color="primary">Junior</mat-checkbox></p>
-      <p><mat-checkbox formControlName="complexity" color="primary">Middle</mat-checkbox></p>
-      <p><mat-checkbox formControlName="complexity" color="primary">Senior</mat-checkbox></p>
+      <p *ngFor="let level of complexity">
+	      <mat-checkbox formControlName="complexity" color="primary"
+	      [checked]="level.checked">{{level.name}}</mat-checkbox>
+  	  </p>
     </section>
     <button mat-raised-button (click)="requestQuestions()">Search</button>
   </div>
