@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { QuestionService } from '../question.service';
 
-export interface Item {
+export interface Technology {
+  name: string;
+  checked: boolean;
+}
+
+export interface Level {
   name: string;
   checked: boolean;
 }
@@ -14,14 +20,14 @@ export interface Item {
 export class InterviewParamsComponent implements OnInit {
 
 
-  technologies: Item[] = [
+  technologies: Technology[] = [
     { name: "Java", checked: false },
     { name: "SQL", checked: false },
     { name: "JS", checked: false },
     { name: "Spring", checked: false }
   ];
 
-  complexity: Item[] = [
+  levels: Level[] = [
     { name: "Junior", checked: false },
     { name: "Middle", checked: false },
     { name: "Senior", checked: false }
@@ -30,7 +36,11 @@ export class InterviewParamsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private questionService: QuestionService) {
+  }
+
+  addTechnology(technology: Technology): void {
+    this.questionService.addTechnology(technology);
   }
 
   requestQuestions(): void {

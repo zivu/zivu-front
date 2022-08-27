@@ -4,12 +4,12 @@
 
       <p *ngFor="let technology of technologies">
       	<mat-checkbox formControlName="technology" color="primary"
-      	[checked]="technology.checked">{{technology.name}}</mat-checkbox>
+      	[checked]="technology.checked" (change)="addTechnology(technology)">{{technology.name}}</mat-checkbox>
       </p>
     </section>
     <section class="technologies">
       <h2>Select level:</h2>
-      <p *ngFor="let level of complexity">
+      <p *ngFor="let level of levels">
 	      <mat-checkbox formControlName="complexity" color="primary"
 	      [checked]="level.checked">{{level.name}}</mat-checkbox>
   	  </p>
