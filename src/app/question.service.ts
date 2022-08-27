@@ -22,5 +22,9 @@ export class QuestionService {
     return this.technologies;
   }
 
+  getLevels(): Level[] {
+    return this.levels;
+  }
+
   constructor() { }
 }

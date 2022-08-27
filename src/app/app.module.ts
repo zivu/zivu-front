@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Router } from '@angular/router';
 import { QuestionsFetcherComponent } from './questions-fetcher/questions-fetcher.component';
 import { InterviewParamsComponent } from './interview-params/interview-params.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [

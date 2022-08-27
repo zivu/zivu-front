@@ -39,8 +39,12 @@ export class InterviewParamsComponent implements OnInit {
   constructor(private router: Router, private questionService: QuestionService) {
   }
 
-  addTechnology(technology: Technology): void {
-    this.questionService.addTechnology(technology);
+  addTechnology(checked: boolean, name: string): void {
+    this.questionService.addTechnology({ name: name, checked: checked });
+  }
+
+  addLevel(checked: boolean, name: string): void {
+    this.questionService.addLevel({ name: name, checked: checked });
   }
 
   requestQuestions(): void {
