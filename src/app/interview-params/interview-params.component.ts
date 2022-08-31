@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionService } from '../question.service';
+import { MatRadioModule } from '@angular/material/radio';
 
 export interface Technology {
   name: string;
@@ -19,6 +20,7 @@ export interface Level {
 })
 export class InterviewParamsComponent implements OnInit {
 
+  complexity: string;
 
   technologies: Technology[] = [
     { name: "Java", checked: false },
@@ -43,8 +45,8 @@ export class InterviewParamsComponent implements OnInit {
     this.questionService.addTechnology({ name: name, checked: checked });
   }
 
-  addLevel(checked: boolean, name: string): void {
-    this.questionService.addLevel({ name: name, checked: checked });
+  addLevel(name: string): void {
+    this.questionService.addLevel({ name: name});
   }
 
   requestQuestions(): void {

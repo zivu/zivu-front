@@ -8,22 +8,22 @@ import { Level } from './levels';
 export class QuestionService {
 
   technologies: Technology[] = [];
-  levels: Level[] = [];
+  level: Level;
 
   addTechnology(technology: Technology) {
     this.technologies.push(technology);
   }
 
   addLevel(level: Level) {
-    this.levels.push(level);
+    this.level = level;
   }
 
   getTechnologies(): Technology[] {
     return this.technologies;
   }
 
-  getLevels(): Level[] {
-    return this.levels;
+  getLevels(): Level {
+    return this.level;
   }
 
   constructor() { }

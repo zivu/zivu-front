@@ -9,7 +9,7 @@ import { QuestionService } from '../question.service';
 export class QuestionsFetcherComponent implements OnInit {
 
   constructor(private service: QuestionService) {
-    console.log(service.getLevels());
+    console.log(service.getTechnologies());
   }
 
   ngOnInit(): void {

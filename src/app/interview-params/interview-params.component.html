@@ -8,11 +8,15 @@
       </p>
     </section>
     <section class="technologies">
-      <h2>Select level:</h2>
-      <p *ngFor="let level of levels">
-	      <mat-checkbox formControlName="complexity" color="primary"
-	      [checked]="level.checked" (change)="addLevel($event.checked, level.name)">{{level.name}}</mat-checkbox>
-  	  </p>
+      <h2>Select level:</h2> 
+	      <mat-radio-group
+  class="example-radio-group">
+  <mat-radio-button class="example-radio-button" *ngFor="let level of levels" [value]="level"
+  color="primary" (change)="addLevel(level.name)">
+    {{level.name}}
+  </mat-radio-button>
+</mat-radio-group>
+  	  <!-- </p> -->
     </section>
     <button mat-raised-button (click)="requestQuestions()">Search</button>
   </div>
