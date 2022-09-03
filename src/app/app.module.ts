@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { QuestionsFetcherComponent } from './questions-fetcher/questions-fetcher.component';
 import { InterviewParamsComponent } from './interview-params/interview-params.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatRadioModule } from '@angular/material/radio';
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

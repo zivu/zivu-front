@@ -1,1 +1,3 @@
-<p>questions-fetcher works!</p>
+<div class="shipping-item" *ngFor="let question of questions | async">
+  <span>{{ question.question }}</span>
+</div>

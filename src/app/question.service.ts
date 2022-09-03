@@ -10,6 +10,7 @@ export class QuestionService {
   technologies: Technology[] = [];
   level: Level;
 
+
   addTechnology(technology: Technology) {
     this.technologies.push(technology);
   }
@@ -26,5 +27,4 @@ export class QuestionService {
     return this.level;
   }
 
-  constructor() { }
 }

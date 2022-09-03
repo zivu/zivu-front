@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../question.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-questions-fetcher',
@@ -8,11 +11,25 @@ import { QuestionService } from '../question.service';
 })
 export class QuestionsFetcherComponent implements OnInit {
 
-  constructor(private service: QuestionService) {
-    console.log(service.getTechnologies());
+httpOptions = {
+  headers: new HttpHeaders({
+    'Access-Control-Allow-Origin':  '*'
+  })
+};
+
+  questions!: Observable<{ question: string, answer: string, level: string, technologies: string }[]>;
+
+  constructor(private service: QuestionService, private httpClient: HttpClient) {
+    console.log(service.getTechnologies());  
+    this.questions = this.requestQuestions();
   }
 
   ngOnInit(): void {
+  }
+
+  requestQuestions() {
+    return this.httpClient.get<{ question: string, answer: string, level: string, technologies: string }[]> ('http://localhost:8080/questions/all', 
+      this.httpOptions);
   }
 
 }
