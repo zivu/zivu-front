@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuestionService } from '../question.service';
 import { MatRadioModule } from '@angular/material/radio';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { FloatLabelType } from '@angular/material/form-field';
 
 export interface Technology {
   name: string;
@@ -22,23 +24,25 @@ export class InterviewParamsComponent implements OnInit {
 
   complexity: string;
 
-  technologies: Technology[] = [
-    { name: "Java", checked: false },
-    { name: "SQL", checked: false },
-    { name: "JS", checked: false },
-    { name: "Spring", checked: false }
-  ];
+  javaControl = new FormControl(false);
+  sqlControl = new FormControl(false);
+  jsControl = new FormControl(false);
+  springControl = new FormControl(false);
+  levelControl = new FormControl('junior' as FloatLabelType);
 
-  levels: Level[] = [
-    { name: "Junior", checked: false },
-    { name: "Middle", checked: false },
-    { name: "Senior", checked: false }
-  ];
+  options = this.formBuilder.group({
+    java:   this.javaControl,
+    sql:    this.sqlControl,
+    spring: this.springControl,
+    js:     this.jsControl,
+    level:  this.levelControl
+  });
 
   ngOnInit(): void {
   }
 
-  constructor(private router: Router, private questionService: QuestionService) {
+  constructor(private router: Router, private questionService: QuestionService,
+    private formBuilder: FormBuilder) {
   }
 
   addTechnology(checked: boolean, name: string): void {

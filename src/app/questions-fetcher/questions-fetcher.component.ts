@@ -11,12 +11,6 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class QuestionsFetcherComponent implements OnInit {
 
-httpOptions = {
-  headers: new HttpHeaders({
-    'Access-Control-Allow-Origin':  '*'
-  })
-};
-
   questions!: Observable<{ question: string, answer: string, level: string, technologies: string }[]>;
 
   constructor(private service: QuestionService, private httpClient: HttpClient) {
@@ -28,8 +22,7 @@ httpOptions = {
   }
 
   requestQuestions() {
-    return this.httpClient.get<{ question: string, answer: string, level: string, technologies: string }[]> ('http://localhost:8080/questions/all', 
-      this.httpOptions);
+    return this.httpClient.get<{ question: string, answer: string, level: string, technologies: string }[]> ('http://localhost:8080/questions/all');
   }
 
 }

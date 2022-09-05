@@ -1,22 +1,29 @@
   <div>
+  	<form [formGroup]="options">
     <section class="technologies">
       <h2>Select technologies:</h2>
-
-      <p *ngFor="let technology of technologies">
-      	<mat-checkbox formControlName="technology" color="primary"
-      	[checked]="technology.checked" (change)="addTechnology($event.checked, technology.name)">{{technology.name}}</mat-checkbox>
+      <p>
+      	<mat-checkbox [formControl]="javaControl" color="primary">Java</mat-checkbox>
+      </p>
+      <p>
+      	<mat-checkbox [formControl]="sqlControl" color="primary">SQL</mat-checkbox>
+      </p>
+      <p>
+      	<mat-checkbox [formControl]="jsControl" color="primary">JS</mat-checkbox>
+      </p>
+      <p>
+      	<mat-checkbox [formControl]="springControl" color="primary">Spring</mat-checkbox>
       </p>
     </section>
     <section class="technologies">
       <h2>Select level:</h2> 
-	      <mat-radio-group
-  class="example-radio-group">
-  <mat-radio-button class="example-radio-button" *ngFor="let level of levels" [value]="level"
-  color="primary" (change)="addLevel(level.name)">
-    {{level.name}}
-  </mat-radio-button>
-</mat-radio-group>
+	      	<mat-radio-group [formControl]="levelControl" class="example-radio-group">
+  				<mat-radio-button class="example-radio-button" color="primary" value="junior">Junior</mat-radio-button>
+  				<mat-radio-button class="example-radio-button" color="primary" value="middle">Middle</mat-radio-button>
+  				<mat-radio-button class="example-radio-button" color="primary" value="senior">Senior</mat-radio-button>
+			</mat-radio-group>
   	  <!-- </p> -->
     </section>
     <button mat-raised-button (click)="requestQuestions()">Search</button>
+	</form>
   </div>
