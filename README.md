@@ -1,6 +1,7 @@
-# ZiruFront
+# ZivuFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+It is a frontend part of [Zivu hiring app](https://github.com/zivu/zivu-hiring), that facilitates generation of interview questions. For now there are 4 technologies covered: Java, Js, Spring and Sql. 
 
 ## Development server
 
