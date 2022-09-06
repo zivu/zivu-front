@@ -1,30 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Technology } from './technologies';
-import { Level } from './levels';
+import { Form } from './form';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuestionService {
 
-  technologies: Technology[] = [];
-  level: Level;
+  form: Form;
 
-
-  addTechnology(technology: Technology) {
-    this.technologies.push(technology);
+  addForm(form: Form) {
+    this.form = form;
   }
 
-  addLevel(level: Level) {
-    this.level = level;
+  getLevel(): string {
+    return this.form.level;
   }
 
-  getTechnologies(): Technology[] {
-    return this.technologies;
+  hasJava(): boolean {
+    return this.form.java;
   }
 
-  getLevels(): Level {
-    return this.level;
+  hasSql(): boolean {
+    return this.form.sql;
+  }
+
+  hasJs(): boolean {
+    return this.form.js;
+  }
+
+  hasSpring(): boolean {
+    return this.form.spring
   }
 
 }

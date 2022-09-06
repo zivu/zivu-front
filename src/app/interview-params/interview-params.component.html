@@ -1,5 +1,5 @@
   <div>
-  	<form [formGroup]="options">
+  	<form [formGroup]="options" (ngSubmit)="onSubmit()">
     <section class="technologies">
       <h2>Select technologies:</h2>
       <p>
@@ -22,8 +22,7 @@
   				<mat-radio-button class="example-radio-button" color="primary" value="middle">Middle</mat-radio-button>
   				<mat-radio-button class="example-radio-button" color="primary" value="senior">Senior</mat-radio-button>
 			</mat-radio-group>
-  	  <!-- </p> -->
     </section>
-    <button mat-raised-button (click)="requestQuestions()">Search</button>
+    <button mat-raised-button type="submit">Search</button>
 	</form>
   </div>

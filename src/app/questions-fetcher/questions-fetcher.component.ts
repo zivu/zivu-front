@@ -13,8 +13,9 @@ export class QuestionsFetcherComponent implements OnInit {
 
   questions!: Observable<{ question: string, answer: string, level: string, technologies: string }[]>;
 
-  constructor(private service: QuestionService, private httpClient: HttpClient) {
-    console.log(service.getTechnologies());  
+  requestUrl: string = 'http://localhost:8080/questions/selected';
+
+  constructor(private service: QuestionService, private httpClient: HttpClient) { 
     this.questions = this.requestQuestions();
   }
 
@@ -22,7 +23,16 @@ export class QuestionsFetcherComponent implements OnInit {
   }
 
   requestQuestions() {
-    return this.httpClient.get<{ question: string, answer: string, level: string, technologies: string }[]> ('http://localhost:8080/questions/all');
+    return this.httpClient.get<{ question: string, answer: string, level: string, technologies: string }[]> (this.buildRequestUrl());
+  }
+
+  buildRequestUrl(): string {
+    return this.requestUrl 
+      + '?level=' + this.service.getLevel()
+      + '&has_java=' + this.service.hasJava()
+      + '&has_spring=' + this.service.hasSpring()
+      + '&has_js=' + this.service.hasJs()
+      + '&has_sql=' + this.service.hasSql();
   }
 
 }

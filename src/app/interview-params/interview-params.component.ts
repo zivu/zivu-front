@@ -4,16 +4,7 @@ import { QuestionService } from '../question.service';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { FloatLabelType } from '@angular/material/form-field';
-
-export interface Technology {
-  name: string;
-  checked: boolean;
-}
-
-export interface Level {
-  name: string;
-  checked: boolean;
-}
+import { Form } from '../form';
 
 @Component({
   selector: 'app-interview-params',
@@ -22,13 +13,11 @@ export interface Level {
 })
 export class InterviewParamsComponent implements OnInit {
 
-  complexity: string;
-
-  javaControl = new FormControl(false);
-  sqlControl = new FormControl(false);
-  jsControl = new FormControl(false);
+  javaControl   = new FormControl(false);
+  sqlControl    = new FormControl(false);
+  jsControl     = new FormControl(false);
   springControl = new FormControl(false);
-  levelControl = new FormControl('junior' as FloatLabelType);
+  levelControl  = new FormControl('junior' as FloatLabelType);
 
   options = this.formBuilder.group({
     java:   this.javaControl,
@@ -41,19 +30,11 @@ export class InterviewParamsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private router: Router, private questionService: QuestionService,
-    private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private service: QuestionService) {
   }
 
-  addTechnology(checked: boolean, name: string): void {
-    this.questionService.addTechnology({ name: name, checked: checked });
-  }
-
-  addLevel(name: string): void {
-    this.questionService.addLevel({ name: name});
-  }
-
-  requestQuestions(): void {
+  onSubmit(): void {
+    this.service.addForm(this.options.value as Form);
     this.router.navigateByUrl('questions');
   }
 
