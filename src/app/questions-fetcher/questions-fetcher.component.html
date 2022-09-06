@@ -1,3 +1,13 @@
-<div class="shipping-item" *ngFor="let question of questions | async">
-  <span>{{ question.question }}</span>
+<div class="question-box">
+<h2>Interview questions:</h2>
+</div>
+<div class="question-box" *ngFor="let question of questions | async">
+	<p>
+	<b>Technology: </b> {{question.technology}}
+	<p>
+	<b>Question: </b> {{question.question}}
+	<p>
+  	<b>Answer: </b> {{question.answer}}
+  	<p>
+  	<mat-divider></mat-divider>
 </div>

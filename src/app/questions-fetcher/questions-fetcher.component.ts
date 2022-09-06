@@ -11,7 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class QuestionsFetcherComponent implements OnInit {
 
-  questions!: Observable<{ question: string, answer: string, level: string, technologies: string }[]>;
+  questions!: Observable<{ question: string, answer: string, level: string, technology: string }[]>;
 
   requestUrl: string = 'http://localhost:8080/questions/selected';
 
@@ -23,7 +23,7 @@ export class QuestionsFetcherComponent implements OnInit {
   }
 
   requestQuestions() {
-    return this.httpClient.get<{ question: string, answer: string, level: string, technologies: string }[]> (this.buildRequestUrl());
+    return this.httpClient.get<{ question: string, answer: string, level: string, technology: string }[]> (this.buildRequestUrl());
   }
 
   buildRequestUrl(): string {

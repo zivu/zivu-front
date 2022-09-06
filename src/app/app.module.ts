@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { Router } from '@angular/router';
 import { QuestionsFetcherComponent } from './questions-fetcher/questions-fetcher.component';
 import { InterviewParamsComponent } from './interview-params/interview-params.component';
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatRadioModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
