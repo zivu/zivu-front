@@ -1,13 +1,27 @@
 <div class="question-box">
 <h2>Interview questions:</h2>
 </div>
-<div class="question-box" *ngFor="let question of questions | async">
+<div class="question-box" *ngFor="let question of questions | async; let i = index">
 	<p>
 	<b>Technology: </b> {{question.technology}}
 	<p>
 	<b>Question: </b> {{question.question}}
 	<p>
-  	<b>Answer: </b> {{question.answer}}
+  	<b>Answer: </b> {{question.answer}} 
   	<p>
+  		<div class="star-box">
+  			<form>
+	  		<fieldset class="rating">
+			    <input type="radio" id="{{'star5-' + i}}" name="rating" value="5" /><label class = "full" for="{{'star5-' + i}}" title="Awesome - 5 stars"></label>
+			    <input type="radio" id="{{'star4-' + i}}" name="rating" value="4" /><label class = "full" for="{{'star4-' + i}}" title="Pretty good - 4 stars"></label>
+			    <input type="radio" id="{{'star3-' + i}}" name="rating" value="3" /><label class = "full" for="{{'star3-' + i}}" title="Average - 3 stars"></label>
+			    <input type="radio" id="{{'star2-' + i}}" name="rating" value="2" /><label class = "full" for="{{'star2-' + i}}" title="Bad - 2 stars"></label>
+			    <input type="radio" id="{{'star1-' + i}}" name="rating" value="1" /><label class = "full" for="{{'star1-' + i}}" title="Very bad - 1 star"></label>
+			   
+			</fieldset>
+		</form>
+		</div>
+	<p>
+	<p>
   	<mat-divider></mat-divider>
 </div>
