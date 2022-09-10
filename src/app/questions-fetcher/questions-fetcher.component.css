@@ -1,4 +1,4 @@
-.question-box, .header-box {
+.question-box {
 	padding-left: 40px;
     padding-right: 40px;
 }
@@ -12,9 +12,8 @@
     top: 0;
 }
 
-.center-content {
-	display: flex;
-    justify-content: center;	
+.header-box {
+	margin-left: 40px;
 }
 
 .star-box {

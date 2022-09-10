@@ -39,15 +39,18 @@
 			<form class="example-form">
 			  <mat-form-field class="example-full-width" appearance="fill">
 			    <mat-label>Areas to be improved </mat-label>
-			    <textarea matInput placeholder="Your thoughts on the candidate"></textarea>
+			    <textarea #cons matInput placeholder="Your thoughts on the candidate"></textarea>
 			  </mat-form-field>
 			</form>
 				<form class="example-form">
 			  <mat-form-field class="example-full-width" appearance="fill">
 			    <mat-label>Strong sides</mat-label>
-			    <textarea matInput placeholder="Your thoughts on the candidate"></textarea>
+			    <textarea #pros matInput placeholder="Your thoughts on the candidate"></textarea>
 			  </mat-form-field>
 			</form>
+			<div class="center-content">
+				<button mat-raised-button (click)="evaluate(cons.value, pros.value);">Evaluate</button>
+			</div>
 		<div>
 	</div>
 </div>

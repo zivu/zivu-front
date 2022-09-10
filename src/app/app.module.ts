@@ -14,12 +14,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuestionsFetcherComponent,
-    InterviewParamsComponent
+    InterviewParamsComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

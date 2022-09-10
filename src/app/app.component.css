@@ -3,3 +3,8 @@
   margin-top: 50px;
   justify-content: center;
 }
+
+.center-content {
+  display: flex;
+    justify-content: center;  
+}

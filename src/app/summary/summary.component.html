@@ -1,0 +1,23 @@
+<h2>Summary:</h2>
+<div class="card">
+  <div class="card-header">
+    Areas to improve
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{cons}}</p>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    Strong sides
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{pros}}</p>
+  </div>
+</div>
+<div>
+	<h2>Technical knowledge:</h2>
+	<p *ngFor="let tech of techSummary | keyvalue">
+		{{tech.key}} - {{tech.value}}
+	</p>
+</div>
