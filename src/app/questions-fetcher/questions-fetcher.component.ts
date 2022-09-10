@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../question.service';
+import { SummaryService } from '../summary.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions-fetcher',
@@ -15,7 +18,9 @@ export class QuestionsFetcherComponent implements OnInit {
 
   requestUrl: string = 'http://localhost:8080/questions/selected';
 
-  constructor(private service: QuestionService, private httpClient: HttpClient) { 
+  private marks = new Map<string, number>();
+
+  constructor(private summaryService: SummaryService, private router: Router, private service: QuestionService, private httpClient: HttpClient) { 
     this.questions = this.requestQuestions();
   }
 
@@ -33,6 +38,16 @@ export class QuestionsFetcherComponent implements OnInit {
       + '&has_spring=' + this.service.hasSpring()
       + '&has_js=' + this.service.hasJs()
       + '&has_sql=' + this.service.hasSql();
+  }
+
+  addMark(technology: String, event: Event, i: number): void {
+    let mark = +(event.target as HTMLInputElement).value; 
+    this.marks.set(technology + ':' + i.toString(), mark);
+  }
+
+  evaluate(cons: string, pros: string) {
+    this.summaryService.addData(this.marks, cons, pros);
+    this.router.navigateByUrl('summary');
   }
 
 }

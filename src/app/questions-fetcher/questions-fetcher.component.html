@@ -1,13 +1,56 @@
-<div class="question-box">
-<h2>Interview questions:</h2>
-</div>
-<div class="question-box" *ngFor="let question of questions | async">
-	<p>
-	<b>Technology: </b> {{question.technology}}
-	<p>
-	<b>Question: </b> {{question.question}}
-	<p>
-  	<b>Answer: </b> {{question.answer}}
-  	<p>
-  	<mat-divider></mat-divider>
+<!-- Star rating copied from https://codepen.io/jamesbarnett/pen/najzYK -->
+<!-- Special thanks to James Barnett for it -->
+<div class="container">
+	<div>
+		<div class="header-box">
+			<h2>Interview questions:</h2>
+		</div>
+		<div class="question-box" *ngFor="let question of questions | async; let i = index">
+			<p>
+			<b>Technology: </b> {{question.technology}}
+			<p>
+			<b>Question: </b> {{question.question}}
+			<p>
+		  	<b>Answer: </b> {{question.answer}} 
+		  	<p>
+		  		<div class="star-box">
+		  			<form>
+			  		<fieldset class="rating">
+					    <input type="radio" id="{{'star5-' + i}}" name="rating" value="5" (click)="addMark(question.technology, $event, i);"/>
+					    <label class = "full" for="{{'star5-' + i}}" title="Awesome - 5 stars"></label>
+					    <input type="radio" id="{{'star4-' + i}}" name="rating" value="4" (click)="addMark(question.technology, $event, i);"/>
+					    <label class = "full" for="{{'star4-' + i}}" title="Pretty good - 4 stars"></label>
+					    <input type="radio" id="{{'star3-' + i}}" name="rating" value="3" (click)="addMark(question.technology, $event, i);"/>
+					    <label class = "full" for="{{'star3-' + i}}" title="Average - 3 stars"></label>
+					    <input type="radio" id="{{'star2-' + i}}" name="rating" value="2" (click)="addMark(question.technology, $event, i);"/>
+					    <label class = "full" for="{{'star2-' + i}}" title="Bad - 2 stars"></label>
+					    <input type="radio" id="{{'star1-' + i}}" name="rating" value="1" (click)="addMark(question.technology, $event, i);"/>
+					    <label class = "full" for="{{'star1-' + i}}" title="Very bad - 1 star"></label>
+					</fieldset>
+				</form>
+				</div>
+			<p>
+			<p>
+		  	<mat-divider></mat-divider>
+		</div>
+	</div>
+	<div class="comment-box">
+		<div class="feedback">
+			<form class="example-form">
+			  <mat-form-field class="example-full-width" appearance="fill">
+			    <mat-label>Areas to be improved </mat-label>
+			    <textarea #cons matInput placeholder="Your thoughts on the candidate"></textarea>
+			  </mat-form-field>
+			</form>
+				<form class="example-form">
+			  <mat-form-field class="example-full-width" appearance="fill">
+			    <mat-label>Strong sides</mat-label>
+			    <textarea #pros matInput placeholder="Your thoughts on the candidate"></textarea>
+			  </mat-form-field>
+			</form>
+			<div class="center-content">
+				<button mat-raised-button (click)="evaluate(cons.value, pros.value);">Evaluate</button>
+			</div>
+		<div>
+	</div>
 </div>
