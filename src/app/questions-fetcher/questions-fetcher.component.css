@@ -1,15 +1,25 @@
 .question-box {
 	padding-left: 40px;
-    padding-right: 40px;
+  padding-right: 40px;
 }
 
 .container {
 	display: flex;
 }
 
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+
+.evaluate-top-space {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
 .feedback {
     position: sticky;
-    top: 0;
+    top: 5%;
 }
 
 .header-box {
@@ -18,20 +28,20 @@
 
 .star-box {
 	display: flex;
-    justify-content: center;
+  justify-content: center;
 }
 
 .comment-box {
 	display: flex;
-    flex-direction: column;
-    margin-right: 40px;
+  flex-direction: column;
+  margin-right: 40px;
 }
 
 .example-form {
   min-width: 150px;
   max-width: 500px;
   width: 600px;
-    position: -webkit-sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 
