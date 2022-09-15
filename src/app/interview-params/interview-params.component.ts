@@ -13,7 +13,7 @@ import { Form } from '../form';
 })
 export class InterviewParamsComponent implements OnInit {
 
-  javaControl   = new FormControl(false);
+  javaControl   = new FormControl(true);
   sqlControl    = new FormControl(false);
   jsControl     = new FormControl(false);
   springControl = new FormControl(false);
