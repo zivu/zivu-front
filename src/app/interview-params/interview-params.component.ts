@@ -18,6 +18,7 @@ export class InterviewParamsComponent implements OnInit {
   jsControl     = new FormControl(false);
   springControl = new FormControl(false);
   levelControl  = new FormControl('junior' as FloatLabelType);
+  disabledButton = false;
 
   options = this.formBuilder.group({
     java:   this.javaControl,
@@ -36,6 +37,15 @@ export class InterviewParamsComponent implements OnInit {
   onSubmit(): void {
     this.service.addForm(this.options.value as Form);
     this.router.navigateByUrl('questions');
+  }
+
+  validateTechnologies(): void {
+    if(this.javaControl.value === true || this.sqlControl.value === true
+      || this.jsControl.value === true || this.springControl.value === true) {
+        this.disabledButton = false;
+    } else {
+      this.disabledButton = true;
+    }
   }
 
 }

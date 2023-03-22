@@ -3,16 +3,16 @@
     <section class="technologies">
       <h2>Select technologies:</h2>
       <p>
-      	<mat-checkbox [formControl]="javaControl" color="primary">Java</mat-checkbox>
+      	<mat-checkbox [formControl]="javaControl" color="primary" (change)="validateTechnologies()">Java</mat-checkbox>
       </p>
       <p>
-      	<mat-checkbox [formControl]="springControl" color="primary">Spring</mat-checkbox>
+      	<mat-checkbox [formControl]="springControl" color="primary" (change)="validateTechnologies()">Spring</mat-checkbox>
       </p>
       <p>
-      	<mat-checkbox [formControl]="sqlControl" color="primary">SQL</mat-checkbox>
+      	<mat-checkbox [formControl]="sqlControl" color="primary" (change)="validateTechnologies()">SQL</mat-checkbox>
       </p>
       <p>
-      	<mat-checkbox [formControl]="jsControl" color="primary">JS</mat-checkbox>
+      	<mat-checkbox [formControl]="jsControl" color="primary" (change)="validateTechnologies()">JS</mat-checkbox>
       </p>
     </section>
     <section class="technologies">
@@ -23,6 +23,6 @@
   				<mat-radio-button class="example-radio-button" color="primary" value="senior">Senior</mat-radio-button>
 			</mat-radio-group>
     </section>
-    <button mat-raised-button type="submit">Search</button>
+    <button mat-raised-button type="submit" [disabled]="disabledButton">Search</button>
 	</form>
   </div>
