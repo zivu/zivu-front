@@ -2,7 +2,7 @@ import { Component, importProvidersFrom } from '@angular/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {ThemePalette} from '@angular/material/core';
 import { Router, RouterOutlet } from '@angular/router';
-
+import { RouterModule } from '@angular/router';
 export interface Task {
   name: string;
   completed: boolean;
@@ -14,7 +14,7 @@ export interface Task {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [RouterOutlet],
+  imports: [RouterModule],
   standalone: true
 })
 export class AppComponent {
