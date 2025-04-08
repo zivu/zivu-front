@@ -17,12 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    QuestionsFetcherComponent,
-    InterviewParamsComponent,
-    SummaryComponent
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,8 +30,7 @@ import { SummaryComponent } from './summary/summary.component';
     MatDividerModule,
     MatInputModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: []
 })
 export class AppModule { 
 }
