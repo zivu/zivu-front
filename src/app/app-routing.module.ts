@@ -5,7 +5,7 @@ import { QuestionsFetcherComponent } from './questions-fetcher/questions-fetcher
 import { InterviewParamsComponent } from './interview-params/interview-params.component';
 import { SummaryComponent } from './summary/summary.component';
 
-const routes: Routes = [
+export const appRoutes: Routes = [
   { path: 'questions', component: QuestionsFetcherComponent },
   { path: '', component: InterviewParamsComponent },
   { path: 'summary', component: SummaryComponent }
@@ -13,8 +13,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
-  ],
+    RouterModule.forRoot(appRoutes)
+  ], 
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

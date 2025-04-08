@@ -3,13 +3,17 @@ import { Router } from '@angular/router';
 import { QuestionService } from '../question.service';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FloatLabelType } from '@angular/material/form-field';
 import { Form } from '../form';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-interview-params',
   templateUrl: './interview-params.component.html',
-  styleUrls: ['./interview-params.component.css']
+  styleUrls: ['./interview-params.component.css'],
+  standalone: true,
+  imports: [ReactiveFormsModule, MatRadioModule, FormsModule, MatCheckboxModule]
 })
 export class InterviewParamsComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import { Form } from './form';
 })
 export class QuestionService {
 
-  form: Form;
+  form: Form = new Form;
 
   addForm(form: Form) {
     this.form = form;
@@ -31,5 +31,4 @@ export class QuestionService {
   hasSpring(): boolean {
     return this.form.spring
   }
-
 }

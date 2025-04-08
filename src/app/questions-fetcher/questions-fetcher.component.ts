@@ -5,12 +5,17 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-questions-fetcher',
   templateUrl: './questions-fetcher.component.html',
-  styleUrls: ['./questions-fetcher.component.css']
+  styleUrls: ['./questions-fetcher.component.css'],
+  standalone: true, imports: [CommonModule, RouterModule, MatDividerModule, MatFormFieldModule, MatInputModule]
 })
 export class QuestionsFetcherComponent implements OnInit {
 

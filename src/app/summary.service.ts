@@ -7,9 +7,9 @@ export class SummaryService {
 
   marks: Map<string, number>;
 
-  cons: string;
+  cons: string = '';
 
-  pros: string;
+  pros: string = '';
 
   addData(marks: Map<string, number>, cons: string, pros: string) {
     this.marks = marks;
@@ -49,5 +49,7 @@ export class SummaryService {
     return summary;
   }
 
-  constructor() { }
+  constructor() {
+    this.marks = new Map<string, number>();
+  }
 }
