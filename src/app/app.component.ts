@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {ThemePalette} from '@angular/material/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 export interface Task {
   name: string;
@@ -13,7 +13,8 @@ export interface Task {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  imports: [RouterOutlet]
 })
 export class AppComponent {
   title = 'zivu-front';
