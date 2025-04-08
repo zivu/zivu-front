@@ -14,7 +14,8 @@ export interface Task {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [RouterOutlet]
+  imports: [RouterOutlet],
+  standalone: true
 })
 export class AppComponent {
   title = 'zivu-front';
